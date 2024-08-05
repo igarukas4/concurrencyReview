@@ -22,19 +22,21 @@ func main() {
 
 	go produceNumbers(evenCh, oddCh)
 
-	for {
+	evenChOpen, oddChOpen := true, true
+	for evenChOpen || oddChOpen {
 		select {
 		case num, ok := <-evenCh:
 			if ok {
 				fmt.Printf("Received an even number: %d\n", num)
+			} else {
+				evenChOpen = false
 			}
 		case num, ok := <-oddCh:
 			if ok {
 				fmt.Printf("Received an odd number: %d\n", num)
+			} else {
+				oddChOpen = false
 			}
-		}
-		if len(evenCh) == 0 && len(oddCh) == 0 {
-			break
 		}
 	}
 }

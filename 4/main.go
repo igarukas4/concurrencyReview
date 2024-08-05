@@ -28,11 +28,11 @@ func main() {
 }
 
 /*
-4.2. Behavior Difference Between Buffered and Unbuffered Channels:
-Unbuffered Channel: The sending goroutine blocks until the receiving goroutine receives the value. 
-This means the sending and receiving happen simultaneously.
-Buffered Channel: The sending goroutine does not block until the buffer is full. 
-It allows the sending goroutine to continue execution until the buffer capacity is reached. 
-The receiving goroutine can receive the values at its own pace. 
-This can improve performance by decoupling the sending and receiving operations but requires managing the buffer size properly to avoid overfilling.
+4.2. Perbedaan Perilaku Antara Channels Buffered dan Unbuffered:
+Buffered Channels: Goroutine pengirim memblokir hingga goroutine penerima menerima nilainya. 
+Artinya pengiriman dan penerimaan terjadi secara bersamaan.
+Unbuffered Channels: Goroutine pengirim tidak akan diblokir sampai buffernya penuh. 
+Hal ini memungkinkan goroutine pengirim untuk melanjutkan eksekusi hingga kapasitas buffer tercapai. 
+Goroutine penerima dapat menerima nilai sesuai kecepatannya sendiri. 
+Hal ini dapat meningkatkan kinerja dengan memisahkan operasi pengiriman dan penerimaan, namun memerlukan pengelolaan ukuran buffer dengan benar untuk menghindari pengisian berlebih.
 */
